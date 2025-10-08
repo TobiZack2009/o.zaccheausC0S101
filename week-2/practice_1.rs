@@ -1,4 +1,4 @@
-fn mainn(){
+fn main(){
 	println!("The course learning outcome is as follows: ");
 
 	println!("1. Distinguish between computer and computer programming,/n
