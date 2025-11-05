@@ -9,7 +9,7 @@ fn main() {
     println!("\nThe {} is informed by the aspitation to train electrical/electronic engineering professionals in the areas of design building and maintenance of electrical control system,",n4);
 
     let w1="Computer".to_string();
-    let w2=" Science".to_string();
+    let w2="  Science".to_string();
     let w3=w1+&w2; //w2 refrence is passed.
     println!();
     println!("{} is aimed at developing competent, creative, innovative, entrepreneurial and ethically-minded persons,capable of creating value in the diverse fields of Computer Science. ",w3)
