@@ -1,5 +1,5 @@
 fn main() {
-    println!("PI value is {}.",get_pi);
+    println!("PI value is {}.",get_pi());
 }
 
 
