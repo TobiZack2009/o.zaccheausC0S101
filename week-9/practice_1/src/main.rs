@@ -1,8 +1,7 @@
 use std::io::Write;
-use std::fs::*;
 fn main() {
-    let annouce="Week 9 - Rust File Input and Output";
-    let dep="Department of Computer Science";
+    let annouce="\nWeek 9 - Rust File Input and Output";
+    let dep="Department of Computer Science\n";
 
     let mut file=std::fs::File::create("../files/data.txt").expect("Creation failed!");
     file.write_all("Welcome to Rust Programming\n".as_bytes()).expect("Creation Failed");
