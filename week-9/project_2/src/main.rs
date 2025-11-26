@@ -1,9 +1,4 @@
 use std::io::Write;
-
-
-
-
-
 fn main() {
     let student_data=[("Oluchi Mordi","ACC10211111","Accounting",300),("Adams Aliyu","ECO10110101","Economics",100),("Shania Bolade","EEE11020202","Computer",200),("Adekunle Gold","EEE11020202","Electrical",200),("Blanca Edemoh","MEE10202001","Mechanical",100)];
     let mut student_data_csv="Student Name, Matric Number, Department, Level\n".to_string();
