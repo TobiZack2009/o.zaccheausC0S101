@@ -1,21 +1,53 @@
-use std::{collections::*, *,io::*};
+use std::{collections::*, io::*, *};
 fn main() {
-    clear_screen();
-    let dbases: HashMap<&str, &str> = [("db", include_str!("databases/globacom_db.sql")),
+    let dbases: HashMap<&str, &str> = 
+    [("Database Structure", include_str!("databases/globacom_db.sql")),
     ("customer",include_str!("databases/globacom_project_customer.sql")),
     ("dataplan",include_str!("databases/globacom_project_dataplan.sql")),
     ("staff",include_str!("databases/globacom_project_staff.sql")),
     ("table",include_str!("databases/globacom_project_table.sql"))].into();
     
 
-    typewrite(200, "Welcome to the program. Enter your username and password.\nUsername: ".into());
+    loop{
+    clear_screen();
+    typewrite(100, "Welcome to the program.\nEnter your username and password.\n\nUsername: ".into());
     let username=input();
-    typewrite(200, "Password: ".into());
+    typewrite(100, "Password: ".into());
     let password=input();
-    println!("{}{}",&username,&password);
+    let [key,name]=
+    match format!("{}{}",username,password).as_str() {
+        "Charlie Brownwwee"=>["Database Structure","Admin"],
+        "John Joopwd"=>["customer","Customer"],
+        "Jul SusieJoke"=>["dataplan","Vendor"],
+        "John JacobNoo"=>["staff","Employee"],
+        "Tim TomNie"=>["table","Project Manager"],
+        _=>{
+            typewrite(100, "Enter a valid username and password".into());
+            continue;
+        }
+    };
+
+    {
+        let filename=format!("{}.sql",key);
+        match  fs::write(filename.clone(), dbases.get(key).unwrap()){
+            Ok(val)=>{
+                println!("\nThe database will be saved as {}.",filename.clone());
+            }
+            Err(_)=>{
+                eprintln!("Failed to save the file {}.",filename)
+            }
+        };
+        typewrite(100, format!("\nYou are a {}.\nHere is the database data.",name));
+        wait(1000);
+        typewrite(100, format!("{}",dbases.get(key).unwrap()));
+        break;
+
+    }
+
+
     
 
-
+    }
 }
 
 fn clear_screen(){
