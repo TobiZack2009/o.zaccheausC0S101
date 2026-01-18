@@ -23,6 +23,7 @@ fn main() {
         "Tim TomNie"=>["table","Project Manager"],
         _=>{
             typewrite(100, "Enter a valid username and password".into());
+            wait(3000);
             continue;
         }
     };
